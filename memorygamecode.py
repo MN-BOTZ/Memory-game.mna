@@ -11,7 +11,7 @@ BOARDWIDTH = 10 # number of columns of icons
 BOARDHEIGHT = 7 # number of rows of icons
 assert (BOARDWIDTH * BOARDHEIGHT) % 2 == 0, 'Board needs to have an even number of boxes for pairs of matches.'
 XMARGIN = int((WINDOWWIDTH - (BOARDWIDTH * (BOXSIZE + GAPSIZE))) / 2)
-YMARGIN = int((WINDOWHEIGHT - (BOARDHEIGHT * (BOXSIZE + GAPSIZE))) / 2)
+
 
  # R G B
 GRAY = (100, 100, 100)
@@ -78,7 +78,8 @@ K_ESCAPE):
 
         boxx, boxy = getBoxAtPixel(mousex, mousey)
         if boxx !=None and boxy !=None :
-# The mouse is currently over a box.
+# The mouse is currently over a box.
+
             if not revealedBoxes[boxx][boxy]:
                 drawHighlightBox(boxx,boxy)
             if not revealedBoxes[boxx][boxy] and mouseClicked:
@@ -137,7 +138,8 @@ def getRandomizedBoard():
     numIconsUsed = int(BOARDWIDTH * BOARDHEIGHT / 2) # calculate how many
 #icons are needed
     icons = icons[:numIconsUsed] * 2 # make two of each
-    random.shuffle(icons)            
+    random.shuffle(icons)
+            
 # Create the board data structure, with randomly placed icons.
     board = []
     for x in range(BOARDWIDTH):
@@ -189,7 +191,8 @@ def drawIcon(shape, color, boxx, boxy):
     elif shape == SQUARE:
             pygame.draw.rect(DISPLAYSURF, color, (left + quarter, top + quarter, BOXSIZE - half, BOXSIZE - half))
     elif shape == SQUARE:
-        pygame.draw.rect(DISPLAYSURF, color, (left + quarter, top + quarter, BOXSIZE - half, BOXSIZE - half))
+        pygame.draw.rect(DISPLAYSURF, color, (left + quarter, top + quarter, BOXSIZE - half, BOXSIZE - half))
+
     elif shape == LINES:
         for i in range(0, BOXSIZE, 4):
             pygame.draw.line(DISPLAYSURF, color, (left, top + i), (left + i, top))
@@ -222,7 +225,8 @@ def drawBoxCovers(board, boxes, coverage):
 def revealBoxesAnimation(board, boxesToReveal):
  # Do the "box reveal" animation.
     for coverage in range(BOXSIZE, (-REVEALSPEED) - 1, - REVEALSPEED):
-        drawBoxCovers(board, boxesToReveal, coverage)
+        drawBoxCovers(board, boxesToReveal, coverage)
+
 
 def coverBoxesAnimation(board, boxesToCover):
  # Do the "box cover" animation.
@@ -241,7 +245,8 @@ def drawBoard(board, revealed):
             else:
 # Draw the (revealed) icon.
                 shape, color = getShapeAndColor(board, boxx, boxy)
-                drawIcon(shape, color, boxx, boxy)
+                drawIcon(shape, color, boxx, boxy)
+
 
 def drawHighlightBox(boxx, boxy):
     left, top = leftTopCoordsOfBox(boxx, boxy)
