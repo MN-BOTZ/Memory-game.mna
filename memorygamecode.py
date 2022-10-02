@@ -11,7 +11,7 @@ BOARDWIDTH = 10 # number of columns of icons
 BOARDHEIGHT = 7 # number of rows of icons
 assert (BOARDWIDTH * BOARDHEIGHT) % 2 == 0, 'Board needs to have an even number of boxes for pairs of matches.'
 XMARGIN = int((WINDOWWIDTH - (BOARDWIDTH * (BOXSIZE + GAPSIZE))) / 2)
-
+YMARGIN = int((WINDOWHEIGHT - (BOARDHEIGHT * (BOXSIZE + GAPSIZE))) / 2)
 
  # R G B
 GRAY = (100, 100, 100)
