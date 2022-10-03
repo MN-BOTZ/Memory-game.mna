@@ -284,7 +284,7 @@ def gameWonAnimation(board):
         pygame.time.wait(300)
 
 
-def hasWon(revealedBoxes):
+ hasWon(revealedBoxes):
  # Returns True if all the boxes have been revealed, otherwise False
     for i in revealedBoxes:
         if False in i:
